@@ -1,0 +1,9 @@
+.floating-button {
+    position: fixed;
+    top: 30vh;
+    right: 0;
+    transform: rotate(270deg);
+    transform-origin: bottom right;
+    z-index: 9999;
+  }
+  

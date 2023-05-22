@@ -1,0 +1,103 @@
+.woocommerce-page div.product .woocommerce-tabs{
+    border:1px solid black;
+    border-radius: var(--bs-border-radius);
+    padding:1.5rem;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs{
+    padding-bottom:1rem;
+    border-bottom:1px solid black;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li{
+    border:0;
+    background-color:transparent;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a{
+    color:black;
+    font-weight: 400;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover{
+    color:$secondary;
+}
+.woocommerce div.product .woocommerce-tabs .panel h2{
+    display:none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::before{
+    display:none;
+}
+#carouselRelated .carousel-control-next{
+    justify-content:end;
+}
+#carouselRelated .carousel-control-prev{
+    justify-content:start;
+}
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images{
+    width:100%;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2){
+    width:20%;
+    padding-left:2.5px;
+    padding-right:2.5px;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2) img{
+    border:1px solid black;
+    border-radius:1rem;
+    margin-right:10px;
+}
+.woocommerce div.product div.images{
+    margin-bottom: 0;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(1) img{
+    margin-bottom:5px;
+    border-radius:1rem;
+}
+.woocommerce div.product .product_title{
+    order:1;
+}
+.hr-title{
+    order:2;
+}
+.woocommerce div.product p.price, .woocommerce div.product span.price{
+    order:3;
+}
+.legal-price-info{
+    order:4;
+}
+.hr-price{
+    order:5;
+}
+.woocommerce div.product form.cart{
+    order:6;
+    margin-bottom:0;
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+}
+.hr-short-description{
+    order:7;
+}
+.woocommerce-product-details__short-description{
+    order:8;
+}
+.product_meta{
+    order:9;
+}
+
+.woocommerce div.product form.cart .button{
+    background-color:transparent;
+    border:1px solid black;
+    color:black;
+    font-weight: 400;
+}
+.woocommerce div.product form.cart .button:hover{
+    background-color:black;
+    color:white;
+}
+
+.woocommerce div.product form.cart{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+}
+.minus:hover, .plus:hover{
+    background-color:black!important;
+    color:white;
+}

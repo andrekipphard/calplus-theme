@@ -1,0 +1,70 @@
+$primary:#505050;
+$secondary:#fbd500;
+$link-decoration:none;
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "components/header";
+@import "components/hero";
+@import "components/vertriebspartner";
+@import "components/logo-carousel";
+@import "components/neues-und-angebote";
+@import "components/footer";
+@import "components/product-archive";
+@import "components/featured-products";
+@import "components/single-product";
+@import "components/floating-contact-button";
+
+h6{
+    font-size:14px;
+}
+.bg-blue{
+    background-color:blue;
+}
+.woocommerce-info::before{
+    color:$primary;
+}
+.woocommerce-info{
+    border-top-color:$primary;
+}
+.btn{
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-right:24px;
+    padding-left:24px;
+    font-size:14px;
+}
+.woocommerce span.onsale{
+    display:none;
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button{
+    border-radius: 0.375em;
+}
+.woocommerce-message{
+    border: solid 1px black;
+    border-radius: 0.375em;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.button.wc-forward.wp-element-button{
+    order:3;
+}
+.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce-page .woocommerce-error .button, .woocommerce-page .woocommerce-info .button, .woocommerce-page .woocommerce-message .button{
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-right:24px;
+    padding-left:24px;
+    font-size:14px;
+    background-color:$secondary;
+    color:black;
+    font-weight: 400;
+}
+.woocommerce .woocommerce-error .button:hover, .woocommerce .woocommerce-info .button:hover, .woocommerce .woocommerce-message .button:hover, .woocommerce-page .woocommerce-error .button:hover, .woocommerce-page .woocommerce-info .button:hover, .woocommerce-page .woocommerce-message .button:hover{
+    background-color:black;
+    color:white;
+}
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before{
+    top:1.5em;
+}
+

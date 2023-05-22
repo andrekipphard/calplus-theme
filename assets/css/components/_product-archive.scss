@@ -1,0 +1,52 @@
+.woocommerce .woocommerce-result-count, .woocommerce .woocommerce-ordering, .woocommerce .woocommerce-breadcrumb{
+    margin-bottom:0;
+}
+.product h4{
+    font-size:14px;
+}
+.woocommerce ul.products.columns-1 li.product, .woocommerce-page ul.products.columns-1 li.product{
+    margin-bottom:2rem;
+}
+.products .price{
+    color:blue!important;
+}
+.woocommerce .products ul, .woocommerce ul.products{
+    margin-bottom:0;
+}
+.woocommerce-result-count{
+    display:none;
+}
+.woocommerce nav.woocommerce-pagination{
+    display:flex;
+}
+.woocommerce .woocommerce-ordering select, .woocommerce-select{
+    border:2px solid rgb(255, 255, 255, 0.5);
+    background-color:transparent;
+    color:white;
+    padding:.5rem;
+    border-radius: 5px;
+}
+.woocommerce nav.woocommerce-pagination ul li{
+    border:2px solid rgb(255, 255, 255, 0.5);
+    background-color:transparent;
+    color:white;
+    padding:.1rem;
+    border-radius: 5px;
+    margin-right:5px;
+}
+.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current{
+    background:transparent;
+    color:$secondary;
+}
+.woocommerce-ordering{
+    width:100%;
+    select{
+        width:100%;
+    }
+}
+.woocommerce nav.woocommerce-pagination ul{
+    border:0;
+}
+.page-numbers .dots{
+    color:$primary;
+}

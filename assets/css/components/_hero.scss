@@ -1,0 +1,18 @@
+.hero .carousel-indicators {
+    bottom: -70px;
+    button {
+        border-radius: 50%;
+        width: 10px!important;
+        height: 10px!important;
+    }
+}
+.hero .carousel-control-prev-icon, .hero .carousel-control-next-icon{
+    width:7rem;
+    height: 7rem;
+    opacity:0;
+    transition: opacity 0.3s ease-in-out;
+}
+.hero #carouselExampleIndicators:hover .carousel-control-prev-icon, .hero #carouselExampleIndicators:hover .carousel-control-next-icon{
+    opacity:1;
+    transition: opacity 0.3s ease-in-out;
+}
