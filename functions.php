@@ -146,6 +146,7 @@ function calplus_scripts() {
 	/*wp_enqueue_script( 'calplus/dark-mode-switcher', get_template_directory_uri(). '/assets/js/dark-mode-switcher.js', array('jquery'), _S_VERSION );*/
 	wp_enqueue_script( 'calplus/logo-carousel', get_template_directory_uri(). '/assets/js/logo-carousel.js', array('jquery'), _S_VERSION );
 	wp_enqueue_script( 'calplus/products-per-page', get_template_directory_uri(). '/assets/js/products-per-page.js', array('jquery'), _S_VERSION );
+	wp_enqueue_script( 'calplus/header-mobile-sub-menu', get_template_directory_uri(). '/assets/js/header-mobile-sub-menu.js', array('jquery'), _S_VERSION );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
