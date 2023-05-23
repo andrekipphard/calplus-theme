@@ -1,4 +1,4 @@
-<div class="row bg-dark text-white text-center pt-3 me-0">
+<div class="row bg-dark text-white text-center pt-3 me-0 categories-icons">
     <div class="col-6">
         <div class="row">
             <?php
@@ -63,7 +63,7 @@
     </div>
 </div>
 
-<div class="row bg-dark text-white text-center pb-2 me-0 sticky-row">
+<div class="row bg-dark text-white text-center pb-2 me-0 sticky-row categories-names">
     <div class="col-6">
         <div class="row">
             <?php
