@@ -3,16 +3,16 @@
     <div class="container py-5">
         <div class="row py-5">
             <div class="col text-center">
-                <h2 class="pb-5 text-uppercase"><?= $headline; ?>Unsere Vertriebspartner</h2>
+                <h2 class="pb-3 pb-lg-5 text-uppercase"><?= $headline; ?>Unsere Vertriebspartner</h2>
                 <div class="row">
                     <?php while(have_rows('vertriebspartner')): the_row();
                         $image = get_sub_field('image');
                         $logo = get_sub_field('logo');?>
-                        <div class="col-6">
-                            <div class="<?php if((get_row_index()%2)==1):?>pe-5 <?php else:?>ps-5<?php endif;?>">
+                        <div class="col-12 col-lg-6">
+                            <div class="<?php if((get_row_index()%2)==1):?>pe-lg-5 pb-5 pb-lg-0 <?php else:?>ps-lg-5<?php endif;?>">
                                 <img src="<?= wp_get_attachment_image_url($image, 'full');?>" class="img-fluid" alt="...">
                                 <div class="row d-flex justify-content-center vertriebspartner-row">
-                                    <div class="col-7">
+                                    <div class="col-10 col-lg-7">
                                         <div class="tagline bg-blue text-white text-uppercase p-2 text-center mx-5">
                                             <h3>Premium Vertriebspartner</h3>
                                         </div>
