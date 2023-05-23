@@ -32,7 +32,7 @@ session_start();
 	
 
 
-		<nav class="navbar navbar-dark navbar-expand-lg bg-black py-5 border-bottom sticky-navbar">
+		<nav class="navbar navbar-dark navbar-expand-lg bg-black py-4 py-lg-5 border-bottom sticky-navbar">
 			<div class="container-fluid px-5">
 				<div class="site-branding">
 					<?php

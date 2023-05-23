@@ -16,3 +16,8 @@
         width: 40px;
     }
 }
+@include media-breakpoint-down(lg){   
+    .btn-w-100{
+        width:100%;
+    }
+}

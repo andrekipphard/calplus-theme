@@ -12336,6 +12336,9 @@ textarea.form-control-lg {
     border-radius: 2rem;
     padding: 10px;
   }
+  ul {
+    padding-left: 0;
+  }
 }
 @media (min-width: 992px) {
   .sticky-row {
@@ -12406,6 +12409,11 @@ textarea.form-control-lg {
   width: 40px;
 }
 
+@media (max-width: 991.98px) {
+  .btn-w-100 {
+    width: 100%;
+  }
+}
 .site-footer img {
   width: 250px;
 }
@@ -12691,4 +12699,14 @@ h6, .h6 {
 
 .woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
   top: 1.5em;
+}
+
+.btn-link {
+  padding: 0;
+}
+
+@media (max-width: 991.98px) {
+  .btn-link {
+    padding-left: 0;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -1,7 +1,7 @@
 <?php if(have_rows('vertriebspartner')):
     $headline = get_sub_field('headline');?>
-    <div class="container py-5">
-        <div class="row py-5">
+    <div class="container py-4 py-lg-5">
+        <div class="row py-4 py-lg-5">
             <div class="col text-center">
                 <h2 class="pb-3 pb-lg-5 text-uppercase"><?= $headline; ?>Unsere Vertriebspartner</h2>
                 <div class="row">

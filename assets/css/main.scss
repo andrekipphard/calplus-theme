@@ -66,3 +66,11 @@ h6{
 .woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before{
     top:1.5em;
 }
+.btn-link{
+    padding:0;
+}
+@include media-breakpoint-down(lg){ 
+    .btn-link{
+        padding-left:0;
+    }
+}
