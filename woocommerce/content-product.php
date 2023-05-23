@@ -33,19 +33,19 @@ if ( empty( $product ) || ! $product->is_visible() ) {
         $product_subcats = get_product_subcategories($product_id);
         $product_short_desc = $product->get_short_description();
     ?>
-    <div class="p-4 h-100 shadow rounded d-flex flex-row position-relative align-items-center">
+    <div class="p-4 h-100 shadow rounded d-flex flex-lg-row flex-column position-relative align-items-center">
         <?php 
             if( $product->is_on_sale() ) {
                 echo '<div class="onsale-badge p-3"><img src="/wp-content/uploads/2023/05/Bildschirm­foto-2023-05-04-um-15.21.24.png" alt="..."></div>';
             }
         ?>
-        <div class="col-4">
+        <div class="col-12 col-lg-4">
             <div class="pe-3">
             <a href="<?= $product_permalink; ?>"><img src="<?php echo wp_get_attachment_url( $product->get_image_id(), 'large' ); ?>" class="img-fluid" alt="..."></a>
             </div>
             
         </div>
-        <div class="col-4">
+        <div class="col-12 col-lg-4">
             <div class="px-3">
             <h3 class="text-uppercase"><?= $product_title;?></h3>
             <h4 class="">
@@ -59,13 +59,14 @@ if ( empty( $product ) || ! $product->is_visible() ) {
             <hr>
             <p class="price"><?= $product_price; ?></p>
             <hr>
-            <a href="<?= $product_permalink; ?>"><button class="btn btn-secondary text-uppercase" type="button">Detailansicht</button></a>
+            <a href="<?= $product_permalink; ?>"><button class="btn btn-secondary text-uppercase desktop-product-archive-btn" type="button">Detailansicht</button></a>
             </div>
             
         </div>
-        <div class="col-4">
-            <div class="border-start ps-3">
+        <div class="col-12 col-lg-4">
+            <div class="border-lg-left ps-3">
                 <p class="text-black-50"><?= $product_short_desc;?></p>
+                <a href="<?= $product_permalink; ?>"><button class="btn btn-secondary text-uppercase mobile-product-archive-btn" type="button">Detailansicht</button></a>
             </div>
         </div>
     </div>

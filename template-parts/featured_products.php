@@ -50,7 +50,7 @@
     }
 ?>
 <?php if($featured_products):?>
-    <div class="border border-dark rounded p-4 mb-4">
+    <div class="border border-dark rounded mt-4 p-4 mb-4">
         <div class="row featured-products">
             <?php $index=0;
                 while(!empty($featured_products[$index])):
@@ -59,7 +59,7 @@
                     $product_cats = $featured_products[$index]->get_categories();
                     $product_short_desc = $featured_products[$index]->get_short_description();
                 ?>
-            <div class="col-4">
+            <div class="col-12 col-lg-4 mb-4 mb-lg-0">
                 <div class="p-4 h-100 shadow rounded d-flex flex-column position-relative">
                     <?php 
                         if( $featured_products[$index]->is_on_sale() ) {

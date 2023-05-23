@@ -1,11 +1,11 @@
-<div class="row d-flex bg-dark text-white rounded p-4 mb-4 mx-0">
-    <div class="col-3 d-flex flex-row-reverse align-items-center justify-content-between">
+<div class="row d-flex bg-dark text-white rounded p-4 mx-0">
+    <div class="col-12 col-lg-3 d-flex flex-row-reverse align-items-center justify-content-between">
         <?php if (have_posts()): ?>
             <?php do_action('woocommerce_before_shop_loop'); ?>
         <?php endif; ?>
     </div>
-    <div class="col-4 d-flex align-items-center d-flex justify-content-center">
-        <form class="woocommerce-products-per-page" action="" method="get">
+    <div class="col-12 col-lg-4 d-flex align-items-center d-flex justify-content-lg-center">
+        <form class="woocommerce-products-per-page mt-3 mt-lg-0" action="" method="get">
             <select name="products-per-page" id="products-per-page" class="woocommerce-select">
                 <?php
                 $current_value = isset($_GET['products-per-page']) ? $_GET['products-per-page'] : get_option('posts_per_page');
@@ -34,7 +34,7 @@
         </form>
 
     </div>
-    <div class="col-5 woocommerce-pagination-col d-flex justify-content-end">
+    <div class="col-12 col-lg-5 woocommerce-pagination-col d-flex justify-content-end">
         
         <?php do_action('woocommerce_after_shop_loop'); ?>
     </div>

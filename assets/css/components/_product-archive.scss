@@ -50,3 +50,33 @@
 .page-numbers .dots{
     color:$primary;
 }
+.mobile-product-archive-btn{
+    display:none;
+}
+.mobile-filter{
+    display:none;
+}
+#sidebarModal{
+    margin-top:150px;
+    padding-bottom:150px;
+}
+@include media-breakpoint-down(lg){
+    .woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
+        width:100%;
+    }
+    .desktop-product-archive-btn{
+        display:none;
+    }
+    .mobile-product-archive-btn{
+        display:block;
+    }
+    .mobile-filter{
+        display:block;
+    }
+    .sidebar-col{
+        display:none;
+    }
+    .wc-block-product-categories-list-item{
+        margin-left:20px;
+    }
+}

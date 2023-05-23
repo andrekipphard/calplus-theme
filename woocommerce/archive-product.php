@@ -30,11 +30,11 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 <div class="container">
-    <div class="row pt-5">
-        <div class="col-3 d-flex align-items-center">
+    <div class="row pt-4 pb-3 pb-lg-0 pt-lg-5">
+        <div class="col-12 col-lg-3 d-flex align-items-center mb-3 mb-lg-0">
             <?php woocommerce_breadcrumb();?>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-12 col-lg-6 text-center">
             <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
                 <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
             <?php endif; ?>
@@ -43,8 +43,36 @@ do_action( 'woocommerce_before_main_content' );
 
         </div>
     </div>
-    <div class="row py-5">
-        <div class="col-3">
+    <div class="row mobile-filter">
+        <div class="col">
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#sidebarModal">
+                Filter
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="sidebarModal" tabindex="-1" aria-labelledby="sidebarModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="sidebarModalLabel">Filter</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <?php if ( is_active_sidebar( 'woocommerce-sidebar' ) ) : ?>
+                                <div id="woocommerce-sidebar" class="woocommerce-sidebar">
+                                    <?php dynamic_sidebar( 'woocommerce-sidebar' ); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row py-4 py-lg-5">
+        <div class="col-12 col-lg-3 sidebar-col">
             <div class="border rounded border-dark p-4">
                 <h3>Filtern nach</h3>
                 <hr>
@@ -55,7 +83,7 @@ do_action( 'woocommerce_before_main_content' );
                 <?php endif; ?>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-12 col-lg-9">
             <div class="row">
                 <div class="col d-flex flex-column">
                     <?php get_template_part('template-parts/sort-bar');?>
@@ -97,7 +125,7 @@ do_action( 'woocommerce_before_main_content' );
 <?php if(have_rows('logo_carousel', 'options')):?>
     <div class="row me-0">
         <div class="col">
-            <div class="swiper mySwiper pt-5 pb-5">
+            <div class="swiper mySwiper py-4 py-lg-5">
                 <div class="swiper-wrapper">
                     <?php while(have_rows('logo_carousel', 'options')): the_row();
                         $logo = get_sub_field('logo_carousel', 'options');?>
