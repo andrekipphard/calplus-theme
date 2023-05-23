@@ -12263,6 +12263,14 @@ textarea.form-control-lg {
   display: block;
 }
 
+#primary-menu li a:hover {
+  color: #fbd500;
+}
+
+.categorie-name-link:hover h6, .categorie-name-link:hover .h6 {
+  color: #fbd500 !important;
+}
+
 @media (max-width: 991.98px) {
   .navbar-toggler {
     border: 0;

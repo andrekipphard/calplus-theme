@@ -86,7 +86,7 @@
                     ?>
                         <div class="col-3 d-flex align-items-center justify-content-center">
                             <div class="px-3">
-                                <a href="<?php echo $category_link; ?>">
+                                <a href="<?php echo $category_link; ?>" class="categorie-name-link">
                                     <h6 class="text-uppercase mt-3 text-white"><?= $category_name; ?></h6>
                                 </a>
                             </div>
@@ -111,7 +111,7 @@
                     ?>
                         <div class="col-3 d-flex align-items-center justify-content-center">
                             <div class="px-3">
-                                <a href="<?php echo $category_link; ?>">
+                                <a href="<?php echo $category_link; ?>" class="categorie-name-link">
                                     <h6 class="text-uppercase mt-3 text-white"><?= $category_name; ?></h6>
                                 </a>
                             </div>

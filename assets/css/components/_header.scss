@@ -73,8 +73,12 @@
 #navbarNav > li, #offcanvasExample > div.row.offcanvas-body > div > nav > li{
     display:block;
 }
-
-  
+#primary-menu li a:hover{
+    color:$secondary;
+}
+.categorie-name-link:hover h6{
+    color:$secondary!important;
+}
   
   
 
