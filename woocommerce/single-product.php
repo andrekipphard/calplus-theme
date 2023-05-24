@@ -26,17 +26,17 @@ $return_cat = $_SESSION['return_cat'];
 $return_cat_url = $_SESSION['return_cat_url'];?>
 <div class="container">
 
-    <div class="row py-5">
-        <div class="col-3 d-flex align-items-center">
+    <div class="row pt-4 pb-3 pb-lg-0 pt-lg-5">
+        <div class="col-12 col-lg-3 d-flex align-items-center mb-3 mb-lg-0">
             <?php woocommerce_breadcrumb();?>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-12 col-lg-6 text-center">
             <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
                 <a class="text-black" href="<?= $return_cat_url; ?>"><h1 class="woocommerce-products-header__title page-title"><?= $return_cat; ?></h1></a>
                 
             <?php endif; ?>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-lg-3">
 
         </div>
     </div>

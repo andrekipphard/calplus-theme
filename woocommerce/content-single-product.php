@@ -34,10 +34,10 @@ if ( post_password_required() ) {
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
     <div class="border border-black mb-4 p-4 rounded">
         <div class="row">
-            <div class="col-6 pe-5">
+            <div class="col-12 col-lg-6 ps-0 ps-lg-2 pe-0 pe-lg-5">
                 <?php do_action( 'woocommerce_before_single_product_summary' );?>
             </div>
-            <div class="col-6 ps-5 pt-5 d-flex flex-column">
+            <div class="col-12 col-lg-6 ps-0 ps-lg-5 pt-4 pt-lg-5 d-flex flex-column">
                 <?php do_action( 'woocommerce_single_product_summary' );?>
             </div>
         </div>

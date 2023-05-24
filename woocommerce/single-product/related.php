@@ -21,21 +21,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $related_products ) : ?>
 
-	<section class="related products pt-5 mt-5">
+	<section class="related products pt-4 pt-lg-5 mt-4 mt-lg-5">
 
 		<?php
 		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'This might also interest you', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
-			<h2 class="pb-5 text-center text-uppercase"><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="pb-0 pb-lg-5 text-center text-uppercase"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 		
 		<?php woocommerce_product_loop_start(); ?>
 
             <?php $index_item = 1;?>
-            <div id="carouselRelated" class="carousel carousel-dark slide">
-                <div class="carousel-inner p-5">
+            <div id="carouselRelatedDesktop" class="carousel carousel-dark slide">
+                <div class="carousel-inner p-4 p-lg-5">
                     <?php $index = 0;?>
                     <?php while($index < count($related_products)):?>
                         <?php $index_product = 1;?>
@@ -47,7 +47,7 @@ if ( $related_products ) : ?>
                                         $product_cats = $related_products[$index]->get_categories();
                                         $product_short_desc = $related_products[$index]->get_short_description();
                                         ?>
-                                    <div class="col-3">
+                                    <div class="col-12 col-lg-3">
                                         <div class="p-4 h-100 shadow rounded d-flex flex-column position-relative">
                                             <?php 
                                                 if( $related_products[$index]->is_on_sale() ) {
@@ -55,9 +55,9 @@ if ( $related_products ) : ?>
                                                 }
                                             ?>
                                             <a href="<?= $produt_permalink; ?>"><img src="<?php echo wp_get_attachment_url( $related_products[$index]->get_image_id(), 'large' ); ?>" class="img-fluid" alt="..."></a>
-                                            <h3 class="text-uppercase mt-5 mb-5"><?= $product_title;?></h3>
+                                            <h3 class="text-uppercase mt-4 mt-lg-4 mb-4 mb-lg-4"><?= $product_title;?></h3>
                                             <h4 class="mb-3"><?= $product_cats; ?></h4>
-                                            <p class="mb-5 text-black-50"><?= $product_short_desc;?></p>
+                                            <p class="mb-4 mb-lg-5 text-black-50"><?= $product_short_desc;?></p>
                                             <a href="<?= $product_permalink; ?>" class="align-self-center"><button class="btn btn-secondary text-uppercase" type="button">Detailansicht</button></a>
                                         </div>
                                     </div>
@@ -70,15 +70,56 @@ if ( $related_products ) : ?>
                     <?php endwhile; ?>
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelated" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelatedDesktop" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselRelated" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselRelatedDesktop" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+            </div>
+            <div id="carouselRelatedMobile" class="carousel carousel-dark slide">
+                <div class="carousel-inner p-4 p-lg-5">
+                    <?php $index = 0;?>
+                    <?php while($index < count($related_products)):?>
+                        <?php
+                            $product_title = $related_products[$index]->get_title();
+                            $product_permalink = $related_products[$index]->get_permalink();
+                            $product_cats = $related_products[$index]->get_categories();
+                            $product_short_desc = $related_products[$index]->get_short_description();
+                        ?>
+                        <div class="carousel-item<?php if($index==0):?> active<?php endif;?>">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <div class="p-4 h-100 shadow rounded d-flex flex-column position-relative">
+                                        <?php 
+                                            if( $related_products[$index]->is_on_sale() ) {
+                                                echo '<div class="onsale-badge p-3"><img src="/wp-content/uploads/2023/05/Bildschirm­foto-2023-05-04-um-15.21.24.png" alt="..."></div>';
+                                            }
+                                        ?>
+                                        <a href="<?= $produt_permalink; ?>"><img src="<?php echo wp_get_attachment_url( $related_products[$index]->get_image_id(), 'large' ); ?>" class="img-fluid" alt="..."></a>
+                                        <h3 class="text-uppercase mt-4 mt-lg-4 mb-4 mb-lg-4"><?= $product_title;?></h3>
+                                        <h4 class="mb-3"><?= $product_cats; ?></h4>
+                                        <p class="mb-4 mb-lg-5 text-black-50"><?= $product_short_desc;?></p>
+                                        <a href="<?= $product_permalink; ?>" class="align-self-center"><button class="btn btn-secondary text-uppercase" type="button">Detailansicht</button></a>
+                                    </div>
+                                </div>
+                                <?php $index++;?>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelatedMobile" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselRelatedMobile" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
 		<?php woocommerce_product_loop_end(); ?>
 

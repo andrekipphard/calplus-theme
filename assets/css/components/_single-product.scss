@@ -110,3 +110,28 @@
 .woocommerce div.product .woocommerce-tabs ul.tabs::before{
     border:0;
 }
+#carouselRelatedMobile{
+    display:none;
+}
+.minus, .plus, .input-text{
+    height: 100%;
+}
+@include media-breakpoint-down(lg){
+    #carouselRelatedDesktop{
+        display:none;
+    }
+    #carouselRelatedMobile{
+        display:block;
+    }
+    .woocommerce div.product form.cart{
+        margin-top:-20px;
+        margin-bottom:40px;
+        flex-wrap: wrap;
+    }
+    .minus, .plus, .input-text{
+        height: auto;
+    }
+    .woocommerce div.product .woocommerce-tabs ul.tabs{
+        padding-left:0;
+    }
+}

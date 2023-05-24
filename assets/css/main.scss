@@ -111,4 +111,11 @@ h6{
     .btn-link{
         padding-left:0;
     }
+    .woocommerce-message{
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    .woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce-page .woocommerce-error .button, .woocommerce-page .woocommerce-info .button, .woocommerce-page .woocommerce-message .button {
+        margin-top:10px;
+    }
 }

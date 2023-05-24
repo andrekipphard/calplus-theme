@@ -67,9 +67,9 @@
                         }
                     ?>
                     <a href="<?= $product_permalink; ?>"><img src="<?php echo wp_get_attachment_url( $featured_products[$index]->get_image_id(), 'large' ); ?>" class="img-fluid" alt="..."></a>
-                    <h3 class="text-uppercase mt-5 mb-5"><?= $product_title;?></h3>
+                    <h3 class="text-uppercase mt-4 mt-lg-4 mb-4 mb-lg-4"><?= $product_title;?></h3>
                     <h4 class="mb-3"><?= $product_cats; ?></h4>
-                    <p class="mb-5 text-black-50"><?= $product_short_desc;?></p>
+                    <p class="mb-4 mb-lg-5 text-black-50"><?= $product_short_desc;?></p>
                     <a href="<?= $product_permalink; ?>" class="align-self-center"><button class="btn btn-secondary text-uppercase" type="button">Detailansicht</button></a>
                 </div>
             </div>

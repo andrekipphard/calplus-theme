@@ -35,12 +35,12 @@ $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 
 	?>
     <span class="me-3">Stückzahl: </span>
 	<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $label ); ?></label>
-    <input type="button" class="minus me-1 h-100 border-black border rounded bg-white" value="-">
+    <input type="button" class="minus me-1 border-black border rounded bg-white" value="-">
 	<input
 		type="<?php echo esc_attr( $type ); ?>"
 		<?php echo $readonly ? 'readonly="readonly"' : ''; ?>
 		id="<?php echo esc_attr( $input_id ); ?>"
-		class="border-black border rounded h-100 me-1 <?php echo esc_attr( join( ' ', (array) $classes ) ); ?>"
+		class="border-black border rounded me-1 <?php echo esc_attr( join( ' ', (array) $classes ) ); ?>"
 		name="<?php echo esc_attr( $input_name ); ?>"
 		value="<?php echo esc_attr( $input_value ); ?>"
 		title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ); ?>"
@@ -54,7 +54,7 @@ $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 
 			autocomplete="<?php echo esc_attr( isset( $autocomplete ) ? $autocomplete : 'on' ); ?>"
 		<?php endif; ?>
 	/>
-    <input type="button" class="h-100 border-black border rounded plus me-3 bg-white" value="+">
+    <input type="button" class="border-black border rounded plus me-3 bg-white" value="+">
 	<?php
 	/**
 	 * Hook to output something after quantity input field

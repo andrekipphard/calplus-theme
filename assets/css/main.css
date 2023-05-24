@@ -12671,6 +12671,33 @@ textarea.form-control-lg {
   border: 0;
 }
 
+#carouselRelatedMobile {
+  display: none;
+}
+
+.minus, .plus, .input-text {
+  height: 100%;
+}
+
+@media (max-width: 991.98px) {
+  #carouselRelatedDesktop {
+    display: none;
+  }
+  #carouselRelatedMobile {
+    display: block;
+  }
+  .woocommerce div.product form.cart {
+    margin-top: -20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .minus, .plus, .input-text {
+    height: auto;
+  }
+  .woocommerce div.product .woocommerce-tabs ul.tabs {
+    padding-left: 0;
+  }
+}
 .floating-button {
   position: fixed;
   top: 30vh;
@@ -13039,5 +13066,12 @@ h6, .h6 {
 @media (max-width: 991.98px) {
   .btn-link {
     padding-left: 0;
+  }
+  .woocommerce-message {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce-page .woocommerce-error .button, .woocommerce-page .woocommerce-info .button, .woocommerce-page .woocommerce-message .button {
+    margin-top: 10px;
   }
 }/*# sourceMappingURL=main.css.map */

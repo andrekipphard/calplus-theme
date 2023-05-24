@@ -48,9 +48,9 @@
                             }
                         ?>
                         <a href="<?= $product_permalink; ?>"><img src="<?php echo wp_get_attachment_url( $sale_products[$index]->get_image_id(), 'large' ); ?>" class="img-fluid" alt="..."></a>
-                        <h3 class="text-uppercase mt-5 mb-5"><?= $product_title;?></h3>
+                        <h3 class="text-uppercase mt-4 mt-lg-4 mb-4 mb-lg-4"><?= $product_title;?></h3>
                         <h4 class="mb-3"><?= $product_cats; ?></h4>
-                        <p class="mb-5 text-black-50"><?= $product_short_desc;?></p>
+                        <p class="mb-4 mb-lg-5 text-black-50"><?= $product_short_desc;?></p>
                         <a href="<?= $product_permalink; ?>" class="align-self-center"><button class="btn btn-secondary text-uppercase" type="button">Detailansicht</button></a>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
                 <div class="col-12 col-lg-3">
                     <div class="p-4 h-100 shadow rounded d-flex flex-column">
                         <a href="/angebote/"><img src="/wp-content/uploads/2023/05/Bildschirm­foto-2023-05-04-um-15.21.24.png" class="img-fluid" alt="..."></a>
-                        <h3 class="text-uppercase mt-5 mb-5">Alle Angebote</h3>
+                        <h3 class="text-uppercase mt-4 mt-lg-4 mb-4 mb-lg-4">Alle Angebote</h3>
                         <h4 class="mb-3">In allen Kategorien</h4>
-                        <p class="mb-5 text-black-50">Entdecken Sie jetzt unsere Neuerscheinungen und Angebote unseres gesamten Sortiments.</p>
+                        <p class="mb-4 mb-lg-5 text-black-50">Entdecken Sie jetzt unsere Neuerscheinungen und Angebote unseres gesamten Sortiments.</p>
                         <a href="/angebote/" class="align-self-center"><button class="btn btn-secondary text-uppercase" type="button">Angebote ansehen</button></a>
                     </div>
                 </div>
