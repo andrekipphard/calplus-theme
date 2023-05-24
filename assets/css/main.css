@@ -12659,6 +12659,18 @@ textarea.form-control-lg {
   color: white;
 }
 
+.woocommerce-page div.product .woocommerce-tabs {
+  border: 1px solid #dee2e6;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+  border: 0;
+}
+
 .floating-button {
   position: fixed;
   top: 30vh;
