@@ -22,8 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); 
 // Access the values
-$return_cat = $_SESSION['return_cat'];
-$return_cat_url = $_SESSION['return_cat_url'];?>
+$product_id = get_the_ID();
+$product_categories = get_the_terms($product_id, 'product_cat');
+$product_subcats = get_product_subcategories($product_id);
+?>
 <div class="container">
 
     <div class="row pt-4 pb-3 pb-lg-0 pt-lg-5 mb-0 mb-lg-5">
@@ -32,7 +34,25 @@ $return_cat_url = $_SESSION['return_cat_url'];?>
         </div>
         <div class="col-12 col-lg-6 text-center">
             <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-                <a class="text-black" href="<?= $return_cat_url; ?>"><h1 class="woocommerce-products-header__title page-title"><?= $return_cat; ?></h1></a>
+                <a class="text-black" href="">
+					<h1 class="woocommerce-products-header__title page-title">
+						<?php $category_count = 1;?>
+						<?php if($product_subcats):?>
+							<?php foreach ($product_subcats as $subcategory):?>
+								<a class="text-black" href="<?=$subcategory['url'];?>"><?= $subcategory['name'];?></a><?php if($category_count<count($product_subcats)):?>,<?php endif;?>
+								<?php $category_count++;?>
+							<?php endforeach;?>
+						<?php else:?>
+							<?php $category_count = 1;?>
+							<?php foreach ($product_categories as $category):
+								$category_name = $category->name; // Category name
+								$category_link = get_term_link($category); // Category link?>
+								<a class="text-black" href="<?=$category_link;?>"><?= $category_name;?></a><?php if($category_count<count($product_categories)):?>,<?php endif;?>
+								<?php $category_count++;?>
+							<?php endforeach;?>
+						<?php endif;?>
+					</h1>
+				</a>
                 
             <?php endif; ?>
         </div>

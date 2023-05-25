@@ -30,6 +30,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
         $product_permalink = $product->get_permalink();
         $product_price = $product->get_price_html();
         $product_id = $product->get_id();
+        $product_categories = get_the_terms($product_id, 'product_cat');
         $product_subcats = get_product_subcategories($product_id);
         $product_short_desc = $product->get_short_description();
     ?>
@@ -50,11 +51,21 @@ if ( empty( $product ) || ! $product->is_visible() ) {
             <h3 class="text-uppercase"><?= $product_title;?></h3>
             <h4 class="">
                 <?php $category_count = 1;?>
-                <?php foreach ($product_subcats as $subcategory):?>
-                        <a href="<?=$subcategory['url'];?>"><?= $subcategory['name'];?></a><?php if($category_count<count($product_subcats)):?>,<?php endif;?>
+                <?php if($product_subcats):?>
+                    <?php foreach ($product_subcats as $subcategory):?>
+                            <a href="<?=$subcategory['url'];?>"><?= $subcategory['name'];?></a><?php if($category_count<count($product_subcats)):?>,<?php endif;?>
+                            <?php $category_count++;?>
+                            <?php endforeach;
+                    ?>
+                <?php else:?>
+                    <?php $category_count = 1;?>
+                    <?php foreach ($product_categories as $category):
+                        $category_name = $category->name; // Category name
+                        $category_link = get_term_link($category); // Category link?>
+                        <a href="<?=$category_link;?>"><?= $category_name;?></a><?php if($category_count<count($product_categories)):?>,<?php endif;?>
                         <?php $category_count++;?>
-                        <?php endforeach;
-                ?>
+                    <?php endforeach;?>
+                <?php endif;?>
             </h4>
             <hr>
             <p class="price"><?= $product_price; ?></p>

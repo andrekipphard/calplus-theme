@@ -71,12 +71,6 @@ if ( ! empty( $breadcrumb ) ) {
                 }
             }  
         }
-        $return_cat_url = $crumb[1];
-        $return_cat = $crumb[0];
-        // Store values in session variables
-        
-        $_SESSION['return_cat'] = $return_cat;
-        $_SESSION['return_cat_url'] = $return_cat_url;
         
     }
     //Single Product Page Breadcrumb
@@ -102,8 +96,6 @@ if ( ! empty( $breadcrumb ) ) {
                 $return_cat = $crumb[0];
                 // Store values in session variables
                 
-                $_SESSION['return_cat'] = $return_cat;
-                $_SESSION['return_cat_url'] = $return_cat_url;
             }
         $index++;
         }

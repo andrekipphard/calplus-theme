@@ -8,8 +8,6 @@
  */
 
 get_header();
-$return_cat = $_SESSION['return_post_cat'];
-$return_cat_url = $_SESSION['return_post_cat_url'];
 ?>
 
 	<main id="primary" class="site-main">
@@ -20,7 +18,7 @@ $return_cat_url = $_SESSION['return_post_cat_url'];
 				</div>
 				<div class="col-12 col-lg-6 text-center">
 					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-						<a class="text-black" href="<?= $return_cat_url; ?>"><h1 class="woocommerce-products-header__title page-title"><?= $return_cat; ?></h1></a>
+						<a class="text-black" href=""><h1 class="woocommerce-products-header__title page-title">Display Category without Childs</h1></a>
 					<?php endif; ?>
 				</div>
 				<div class="col-12 col-lg-3">

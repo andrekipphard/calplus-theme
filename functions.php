@@ -357,13 +357,17 @@ function jk_related_products_args( $args ) {
 }
 
 function custom_archive_orderby( $query ) {
-	if ( $query->is_main_query() && $query->is_archive() && ! is_admin() && ! is_post_type_archive( 'product' ) ) {
-		$query->set( 'meta_key', 'datum_start' );
-		$query->set( 'orderby', 'meta_value' );
-		$query->set( 'order', 'ASC' );
+	if ( $query->is_main_query() && $query->is_archive() && ! is_admin() ) {
+		$post_types = array( 'seminar', 'messe' );
+		if ( in_array( $query->get( 'post_type' ), $post_types ) ) {
+			$query->set( 'meta_key', 'datum_start' );
+			$query->set( 'orderby', 'meta_value' );
+			$query->set( 'order', 'ASC' );
+		}
 	}
 }
 add_action( 'pre_get_posts', 'custom_archive_orderby' );
+
 
 	
 	class Custom_Range_Slider_Widget extends WP_Widget {
