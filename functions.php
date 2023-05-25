@@ -239,20 +239,21 @@ function woo_cart_but_count( $fragments ) {
 
 function create_posttype() {
   
-    register_post_type( 'messe',
-    // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Messen' ),
-                'singular_name' => __( 'Messe' )
-            ),
-            'public' => true,
-            'has_archive' => true,
-            'rewrite' => array('slug' => 'messen'),
-            'show_in_rest' => true,
-  
-        )
-    );
+    register_post_type(
+		'messe',
+		array(
+			'labels'      => array(
+				'name'          => __( 'Messen' ),
+				'singular_name' => __( 'Messe' )
+			),
+			'public'      => true,
+			'has_archive' => true,
+			'rewrite'     => array( 'slug' => 'messen' ),
+			'show_in_rest'=> true,
+			'supports'    => array( 'title', 'editor', 'thumbnail', 'excerpt' ), // Add 'thumbnail' support
+			'taxonomies'  => array( 'category' ), // Add 'category' taxonomy
+		)
+	);
 	register_post_type( 'seminar',
     // CPT Options
         array(
@@ -264,7 +265,8 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'seminare'),
             'show_in_rest' => true,
-  
+			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ), // Add 'thumbnail' support
+			'taxonomies'  => array( 'category' ), // Add 'category' taxonomy
         )
     );
 }
@@ -352,7 +354,15 @@ function woo_related_products_limit() {
 	$args['columns'] = 2; // arranged in 2 columns
 	return $args;
 	}
-
+	function custom_archive_orderby( $query ) {
+		if ( $query->is_main_query() && $query->is_archive() && ! is_admin() ) {
+			$query->set( 'meta_key', 'datum_start' );
+			$query->set( 'orderby', 'meta_value' );
+			$query->set( 'order', 'ASC' );
+		}
+	}
+	add_action( 'pre_get_posts', 'custom_archive_orderby' );
+	
 	class Custom_Range_Slider_Widget extends WP_Widget {
 		// Constructor
 		public function __construct() {

@@ -12707,6 +12707,30 @@ textarea.form-control-lg {
   z-index: 9999;
 }
 
+.size-post-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.archive .price {
+  color: blue;
+}
+
+.archive h4, .archive .h4 {
+  font-size: 14px;
+}
+
+.archive h2, .archive .h2 {
+  padding: 0.5em 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.archive h2 a, .archive .h2 a {
+  color: var(--bs-heading-color, inherit);
+}
+
 .border-top {
   border-top: 1px solid #dee2e6 !important;
 }

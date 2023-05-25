@@ -12,6 +12,7 @@ $link-decoration:none;
 @import "components/featured-products";
 @import "components/single-product";
 @import "components/floating-contact-button";
+@import "components/archive";
 @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
       $infix: breakpoint-infix($breakpoint, $grid-breakpoints);

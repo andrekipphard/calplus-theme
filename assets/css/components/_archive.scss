@@ -1,0 +1,21 @@
+.size-post-thumbnail{
+    width: 100%;
+    height: auto;
+}
+.archive .price{
+    color:blue;
+}
+.archive h4{
+    font-size:14px;
+}
+.archive h2{
+    padding: 0.5em 0;
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.2;
+    a{
+        color: var(--bs-heading-color, inherit);
+    }
+    
+}
