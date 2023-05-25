@@ -78,7 +78,7 @@ do_action( 'woocommerce_before_main_content' );
                 <hr>
                 <?php if ( is_active_sidebar( 'woocommerce-sidebar' ) ) : ?>
                     <div id="woocommerce-sidebar" class="woocommerce-sidebar">
-                        <?php dynamic_sidebar( 'woocommerce-sidebar' ); ?>
+                    <?php dynamic_sidebar( 'woocommerce-sidebar' ); ?>
                     </div>
                 <?php endif; ?>
             </div>

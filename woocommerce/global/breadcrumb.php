@@ -25,22 +25,59 @@ if ( ! empty( $breadcrumb ) ) {
 	echo $wrap_before;
     //Standard Breadcrumb
 	if(!is_product()){
-        foreach ( $breadcrumb as $key => $crumb ) {
+        if(is_single()){
+            $index=0;
+            foreach ( $breadcrumb as $key => $crumb ) {
+                if($index+2<sizeof($breadcrumb)){
+                    echo $before;
+                    if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
+                        echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+                    } else {
+                        echo esc_html( $crumb[0] );
+                    }
+            
+                    echo $after;
+            
+                    if ( sizeof( $breadcrumb ) !== $key + 1 && $index+3<sizeof($breadcrumb) ) {
+                        echo $delimiter;
+                    }
+                }
+                if($index+2==sizeof($breadcrumb)){
+                    $return_cat_url = $crumb[1];
+                    $return_cat = $crumb[0];
+                    // Store values in session variables
+                    
+                    $_SESSION['return_post_cat'] = $return_cat;
+                    $_SESSION['return_post_cat_url'] = $return_cat_url;
+                }
+            $index++;
+            }
+        }
+        else{
+            foreach ( $breadcrumb as $key => $crumb ) {
 
-            echo $before;
-    
-            if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-                echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
-            } else {
-                echo esc_html( $crumb[0] );
-            }
-    
-            echo $after;
-    
-            if ( sizeof( $breadcrumb ) !== $key + 1 ) {
-                echo $delimiter;
-            }
-        }  
+                echo $before;
+        
+                if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
+                    echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+                } else {
+                    echo esc_html( $crumb[0] );
+                }
+        
+                echo $after;
+        
+                if ( sizeof( $breadcrumb ) !== $key + 1 ) {
+                    echo $delimiter;
+                }
+            }  
+        }
+        $return_cat_url = $crumb[1];
+        $return_cat = $crumb[0];
+        // Store values in session variables
+        
+        $_SESSION['return_cat'] = $return_cat;
+        $_SESSION['return_cat_url'] = $return_cat_url;
+        
     }
     //Single Product Page Breadcrumb
     if(is_product()){

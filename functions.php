@@ -347,21 +347,24 @@ function woo_related_products_limit() {
 
 	$args['posts_per_page'] = 6;
 	return $args;
-	}
-	add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args' );
-	function jk_related_products_args( $args ) {
+}
+add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args' );
+
+function jk_related_products_args( $args ) {
 	$args['posts_per_page'] = 6; // 4 related products
 	$args['columns'] = 2; // arranged in 2 columns
 	return $args;
+}
+
+function custom_archive_orderby( $query ) {
+	if ( $query->is_main_query() && $query->is_archive() && ! is_admin() && ! is_post_type_archive( 'product' ) ) {
+		$query->set( 'meta_key', 'datum_start' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'ASC' );
 	}
-	function custom_archive_orderby( $query ) {
-		if ( $query->is_main_query() && $query->is_archive() && ! is_admin() ) {
-			$query->set( 'meta_key', 'datum_start' );
-			$query->set( 'orderby', 'meta_value' );
-			$query->set( 'order', 'ASC' );
-		}
-	}
-	add_action( 'pre_get_posts', 'custom_archive_orderby' );
+}
+add_action( 'pre_get_posts', 'custom_archive_orderby' );
+
 	
 	class Custom_Range_Slider_Widget extends WP_Widget {
 		// Constructor
