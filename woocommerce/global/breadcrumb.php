@@ -23,56 +23,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! empty( $breadcrumb ) ) {
 
 	echo $wrap_before;
-    //Standard Breadcrumb
-	if(!is_product()){
-        if(is_single()){
-            $index=0;
-            foreach ( $breadcrumb as $key => $crumb ) {
-                if($index+2<sizeof($breadcrumb)){
-                    echo $before;
-                    if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-                        echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
-                    } else {
-                        echo esc_html( $crumb[0] );
-                    }
-            
-                    echo $after;
-            
-                    if ( sizeof( $breadcrumb ) !== $key + 1 && $index+3<sizeof($breadcrumb) ) {
-                        echo $delimiter;
-                    }
-                }
-                if($index+2==sizeof($breadcrumb)){
-                    $return_cat_url = $crumb[1];
-                    $return_cat = $crumb[0];
-                    // Store values in session variables
-                    
-                    $_SESSION['return_post_cat'] = $return_cat;
-                    $_SESSION['return_post_cat_url'] = $return_cat_url;
-                }
-            $index++;
-            }
-        }
-        else{
-            foreach ( $breadcrumb as $key => $crumb ) {
-
+    // Standard Breadcrumb
+if (!is_product()) {
+    if (is_single()) {
+        $index = 0;
+        foreach ($breadcrumb as $key => $crumb) {
+            if ($index + 1 < sizeof($breadcrumb)) {
                 echo $before;
-        
-                if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-                    echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+                if (!empty($crumb[1]) && sizeof($breadcrumb) !== $key + 1) {
+                    $permalink = esc_url($crumb[1]);
+                    // Remove category slug from permalink
+                    $permalink = preg_replace('/\/[^\/]+\/$/', '/', $permalink);
+                    echo '<a href="' . $permalink . '">' . esc_html($crumb[0]) . '</a>';
                 } else {
-                    echo esc_html( $crumb[0] );
+                    echo esc_html($crumb[0]);
                 }
-        
+
                 echo $after;
-        
-                if ( sizeof( $breadcrumb ) !== $key + 1 ) {
+
+                if (sizeof($breadcrumb) !== $key + 1 && $index + 2 < sizeof($breadcrumb)) {
                     echo $delimiter;
                 }
-            }  
+            }
+            $index++;
         }
-        
+    } else {
+        foreach ($breadcrumb as $key => $crumb) {
+            echo $before;
+
+            if (!empty($crumb[1]) && sizeof($breadcrumb) !== $key + 1) {
+                $permalink = esc_url($crumb[1]);
+                // Remove category slug from permalink
+                $permalink = preg_replace('/\/[^\/]+\/$/', '/', $permalink);
+                echo '<a href="' . $permalink . '">' . esc_html($crumb[0]) . '</a>';
+            } else {
+                echo esc_html($crumb[0]);
+            }
+
+            echo $after;
+
+            if (sizeof($breadcrumb) !== $key + 1) {
+                echo $delimiter;
+            }
+        }
     }
+}
+
     //Single Product Page Breadcrumb
     if(is_product()){
         $index=0;
@@ -90,13 +86,7 @@ if ( ! empty( $breadcrumb ) ) {
                 if ( sizeof( $breadcrumb ) !== $key + 1 && $index+3<sizeof($breadcrumb) ) {
                     echo $delimiter;
                 }
-            }
-            if($index+2==sizeof($breadcrumb)){
-                $return_cat_url = $crumb[1];
-                $return_cat = $crumb[0];
-                // Store values in session variables
-                
-            }
+            }    
         $index++;
         }
     }

@@ -248,7 +248,7 @@ function create_posttype() {
 			),
 			'public'      => true,
 			'has_archive' => true,
-			'rewrite'     => array( 'slug' => 'messen' ),
+			'rewrite'     => array( 'slug' => 'messen/%category%', 'with_front' => false ),
 			'show_in_rest'=> true,
 			'supports'    => array( 'title', 'editor', 'thumbnail', 'excerpt' ), // Add 'thumbnail' support
 			'taxonomies'  => array( 'category' ), // Add 'category' taxonomy
@@ -263,7 +263,7 @@ function create_posttype() {
             ),
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'seminare'),
+            'rewrite' => array('slug' => 'seminare/%category%', 'with_front' => false ),
             'show_in_rest' => true,
 			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ), // Add 'thumbnail' support
 			'taxonomies'  => array( 'category' ), // Add 'category' taxonomy
@@ -272,6 +272,64 @@ function create_posttype() {
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
+
+function custom_post_type_permalink_messe( $permalink, $post ) {
+	if ( 'messe' === $post->post_type ) {
+		$terms = get_the_terms( $post->ID, 'category' );
+		if ( ! empty( $terms ) ) {
+			$term = array_shift( $terms );
+			$permalink = home_url( 'messen/' . $term->slug . '/' . $post->post_name . '/' );
+		} else {
+			$permalink = home_url( 'messen/' . $post->post_name . '/' );
+		}
+	}
+	return $permalink;
+}
+add_filter( 'post_type_link', 'custom_post_type_permalink_messe', 10, 2 );
+
+function custom_post_type_archive_rewrite_rule_messe( $rules ) {
+	$new_rules = array(
+		'messen/([^/]+)/?$' => 'index.php?post_type=messe&category_name=$matches[1]',
+		'messen/?$'         => 'index.php?post_type=messe',
+	);
+
+	return $new_rules + $rules;
+}
+add_filter( 'rewrite_rules_array', 'custom_post_type_archive_rewrite_rule_messe' );
+
+function custom_post_type_category_archive( $query ) {
+	if ( $query->is_main_query() && ! is_admin() && $query->is_category() ) {
+		$query->set( 'post_type', array( 'post', 'messe', 'seminar' ) );
+	}
+}
+
+add_action( 'pre_get_posts', 'custom_post_type_category_archive' );
+
+
+function custom_post_type_permalink_seminar( $permalink, $post ) {
+	if ( 'seminar' === $post->post_type ) {
+		$terms = get_the_terms( $post->ID, 'category' );
+		if ( ! empty( $terms ) ) {
+			$term = array_shift( $terms );
+			$permalink = home_url( 'seminare/' . $term->slug . '/' . $post->post_name . '/' );
+		} else {
+			$permalink = home_url( 'seminare/' . $post->post_name . '/' );
+		}
+	}
+	return $permalink;
+}
+add_filter( 'post_type_link', 'custom_post_type_permalink_seminar', 10, 2 );
+
+function custom_post_type_archive_rewrite_rule_seminar( $rules ) {
+	$new_rules = array(
+		'seminare/([^/]+)/?$' => 'index.php?post_type=seminar&category_name=$matches[1]',
+		'seminare/?$'         => 'index.php?post_type=seminar',
+	);
+
+	return $new_rules + $rules;
+}
+add_filter( 'rewrite_rules_array', 'custom_post_type_archive_rewrite_rule_seminar' );
+
 
 // Change the delimiter for WooCommerce breadcrumbs
 function change_breadcrumb_delimiter($defaults) {
@@ -368,6 +426,24 @@ function custom_archive_orderby( $query ) {
 }
 add_action( 'pre_get_posts', 'custom_archive_orderby' );
 
+function change_category_base() {
+    add_rewrite_rule(
+        'kategorie/([^/]+)/?$',
+        'index.php?category_name=$matches[1]',
+        'top'
+    );
+}
+
+add_action('init', 'change_category_base');
+
+function change_category_link($termlink, $term, $taxonomy) {
+    if ($taxonomy === 'category') {
+        $termlink = str_replace('/category/', '/kategorie/', $termlink);
+    }
+    return $termlink;
+}
+
+add_filter('term_link', 'change_category_link', 10, 3);
 
 	
 	class Custom_Range_Slider_Widget extends WP_Widget {

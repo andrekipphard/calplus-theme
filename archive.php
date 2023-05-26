@@ -19,7 +19,15 @@ get_header();
 					</div>
 					<div class="col-12 col-lg-6 text-center">
 						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-							<h1 class="woocommerce-products-header__title page-title"><?php post_type_archive_title( '<h1 class="page-title">', '</h1>' ); ?></h1>
+							<h1 class="woocommerce-products-header__title page-title">
+								<?php
+									if ( is_category() ) {
+										single_cat_title();
+									} elseif ( is_post_type_archive() ) {
+										post_type_archive_title();
+									}
+								?>
+							</h1>
 							<p><?php the_archive_description( '<div class="archive-description">', '</div>' ); ?></p>
 						<?php endif; ?>
 					</div>

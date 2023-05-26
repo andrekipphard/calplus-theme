@@ -8,6 +8,13 @@
  */
 
 get_header();
+$post_id = get_the_ID();
+$post_categories = wp_get_post_categories($post_id);
+if (!empty($post_categories)) {
+    $last_category_id = end($post_categories); // Get the last category ID
+    $last_category = get_category($last_category_id); // Get the last category object
+    $permalink = get_category_link($last_category_id);
+}
 ?>
 
 	<main id="primary" class="site-main">
@@ -18,7 +25,7 @@ get_header();
 				</div>
 				<div class="col-12 col-lg-6 text-center">
 					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-						<a class="text-black" href=""><h1 class="woocommerce-products-header__title page-title">Display Category without Childs</h1></a>
+						<a class="text-black" href="<?= $permalink; ?>"><h1 class="woocommerce-products-header__title page-title"><?php echo $last_category->name;?></h1></a>
 					<?php endif; ?>
 				</div>
 				<div class="col-12 col-lg-3">
