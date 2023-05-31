@@ -13,7 +13,7 @@ get_header();
 	<main id="primary" class="site-main">
 		<div class="container">
 			<?php if ( have_posts() ) : ?>
-				<div class="row pt-4 pb-3 pb-lg-0 pt-lg-5">
+				<div class="row pt-4 pb-lg-0 pt-lg-5">
 					<div class="col-12 col-lg-3 d-flex align-items-center mb-3 mb-lg-0">
 						<?php woocommerce_breadcrumb();?>
 					</div>
